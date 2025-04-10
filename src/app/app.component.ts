@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Angular_Animation';
+  list: string[] = ['Milk', 'Sugar', 'Bread'];
+
+    onAdd(item: string) {
+      this.list.push(item);
+    }
+
+    onDelete(item: string) {
+
+    }
 }
