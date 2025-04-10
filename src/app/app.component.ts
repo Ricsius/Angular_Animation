@@ -40,7 +40,26 @@ import { Component } from '@angular/core';
       })),
       animate(500)
     ]),
-  ])
+  ]),
+  trigger('list1', [
+    state('in', style({
+      opacity: '1',
+      transform: 'translateX(0)'
+    })),
+    transition('void => *', [
+      style({
+        opacity: '0',
+        transform: 'translateX(-100px)'
+      }),
+      animate(300)
+    ]),
+    transition('* => void', [
+      animate(300, style({
+        transform: 'translateX(100px)',
+        opacity: 0
+      }))
+    ]),
+  ]),
 ]
 })
 export class AppComponent {
@@ -53,7 +72,7 @@ export class AppComponent {
     }
 
     onDelete(item: string) {
-
+      this.list = this.list.filter(e => e !== item);
     }
 
     onAnimate() {
