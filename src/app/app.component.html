@@ -34,6 +34,7 @@
       <ul class="list-group">
         @for (item of list; track $index) {
           <li
+          [@list2]
           class="list-group-item"
           (click)="onDelete(item)">
           {{ item }}
